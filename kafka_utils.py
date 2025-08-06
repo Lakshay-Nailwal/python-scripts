@@ -38,7 +38,6 @@ def get_kafka_config(env=None):
     
     return {
         'bootstrap.servers': bootstrap_servers,
-        'client.id': os.getenv('KAFKA_CLIENT_ID', 'python-producer')
     }
 
 def delivery_report(err, msg):
@@ -54,7 +53,7 @@ def delivery_report(err, msg):
     else:
         logging.info(f"Message delivered to {msg.topic()} [{msg.partition()}] at offset {msg.offset()}")
 
-def push_to_kafka(topic, data, key=None, env=None):
+def push_to_kafka(topic, data, key=None, env='qa2'):
     """
     Push data to Kafka topic.
     
@@ -90,79 +89,30 @@ def push_to_kafka(topic, data, key=None, env=None):
         
         env_info = f" (env: {env})" if env else ""
         logging.info(f"Successfully pushed message to topic: {topic}{env_info}")
+        logging.info(f"Message: {message}")
         return True
         
     except Exception as e:
         logging.error(f"Error pushing to Kafka topic {topic}: {e}")
         return False
 
-def push_batch_to_kafka(topic, data_list, key_list=None, env=None):
-    """
-    Push multiple messages to Kafka topic in batch.
-    
-    Args:
-        topic (str): Kafka topic name
-        data_list (list): List of data items to send
-        key_list (list, optional): List of keys corresponding to data items
-        env (str, optional): Environment ('qa2', 'staging', 'prod')
-    
-    Returns:
-        int: Number of successfully queued messages
-    """
-    try:
-        producer = Producer(get_kafka_config(env))
-        success_count = 0
-        
-        for i, data in enumerate(data_list):
-            try:
-                # Get key if provided
-                key = key_list[i] if key_list and i < len(key_list) else None
-                
-                # Convert data to JSON string if it's a dictionary
-                if isinstance(data, dict):
-                    message = json.dumps(data)
-                else:
-                    message = str(data)
-                
-                # Produce message
-                producer.produce(
-                    topic=topic,
-                    value=message,
-                    key=key,
-                    callback=delivery_report
-                )
-                success_count += 1
-                
-            except Exception as e:
-                logging.error(f"Error queuing message {i}: {e}")
-        
-        # Wait for all messages to be delivered
-        producer.flush()
-        
-        env_info = f" (env: {env})" if env else ""
-        logging.info(f"Successfully pushed {success_count}/{len(data_list)} messages to topic: {topic}{env_info}")
-        return success_count
-        
-    except Exception as e:
-        logging.error(f"Error in batch push to Kafka topic {topic}: {e}")
-        return 0
 
 # Example usage:
-if __name__ == "__main__":
-    # Test data
-    test_data = {
-        "user_id": 123,
-        "action": "login",
-        "timestamp": "2024-12-20T10:30:00Z"
-    }
+# if __name__ == "__main__":
+#     # Test data
+#     test_data = {
+#         "user_id": 123,
+#         "action": "login",
+#         "timestamp": "2024-12-20T10:30:00Z"
+#     }
     
-    # Push single message to different environments
-    push_to_kafka("test-topic", test_data, key="user_123", env="qa2")
-    push_to_kafka("test-topic", test_data, key="user_123", env="staging")
+#     # Push single message to different environments
+#     push_to_kafka("test-topic", test_data, key="user_123", env="qa2")
+#     push_to_kafka("test-topic", test_data, key="user_123", env="staging")
     
-    # Push batch messages
-    batch_data = [
-        {"event": "page_view", "page": "home"},
-        {"event": "click", "button": "signup"}
-    ]
-    push_batch_to_kafka("events-topic", batch_data, env="qa2")
+#     # Push batch messages
+#     batch_data = [
+#         {"event": "page_view", "page": "home"},
+#         {"event": "click", "button": "signup"}
+#     ]
+#     push_batch_to_kafka("events-topic", batch_data, env="qa2")
