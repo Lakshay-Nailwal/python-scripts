@@ -1,4 +1,4 @@
-from getDBConnect import create_db_connection
+from getDBConnection import create_db_connection
 from dotenv import load_dotenv
 import os
 

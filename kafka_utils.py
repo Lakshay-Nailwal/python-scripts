@@ -53,7 +53,7 @@ def delivery_report(err, msg):
     else:
         logging.info(f"Message delivered to {msg.topic()} [{msg.partition()}] at offset {msg.offset()}")
 
-def push_to_kafka(topic, data, key=None, env='qa2'):
+def push_to_kafka(topic, data, key=None, env="qa2"):
     """
     Push data to Kafka topic.
     
@@ -89,30 +89,9 @@ def push_to_kafka(topic, data, key=None, env='qa2'):
         
         env_info = f" (env: {env})" if env else ""
         logging.info(f"Successfully pushed message to topic: {topic}{env_info}")
-        logging.info(f"Message: {message}")
+        logging.info(f"Message data: {message}")
         return True
         
     except Exception as e:
         logging.error(f"Error pushing to Kafka topic {topic}: {e}")
         return False
-
-
-# Example usage:
-# if __name__ == "__main__":
-#     # Test data
-#     test_data = {
-#         "user_id": 123,
-#         "action": "login",
-#         "timestamp": "2024-12-20T10:30:00Z"
-#     }
-    
-#     # Push single message to different environments
-#     push_to_kafka("test-topic", test_data, key="user_123", env="qa2")
-#     push_to_kafka("test-topic", test_data, key="user_123", env="staging")
-    
-#     # Push batch messages
-#     batch_data = [
-#         {"event": "page_view", "page": "home"},
-#         {"event": "click", "button": "signup"}
-#     ]
-#     push_batch_to_kafka("events-topic", batch_data, env="qa2")

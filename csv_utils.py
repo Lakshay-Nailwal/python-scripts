@@ -11,43 +11,38 @@ OUTPUT_DIRECTORY = os.getenv('CSV_OUTPUT_DIR', "/Users/lakshay.nailwal/Desktop/C
 
 def save_to_csv(filename, headers, data, output_dir=None):
     """
-    Save data to CSV file in a predefined location.
-    
-    Args:
-        filename (str): Name of the CSV file (without path)
-        headers (list): List of column headers
-        data (list): List of rows (each row is a list/tuple)
-        output_dir (str, optional): Custom output directory. Defaults to OUTPUT_DIRECTORY.
-    
-    Returns:
-        string: Full path of the saved file
+    Save data to CSV file. Supports both list of dicts and list of lists/tuples.
     """
     if output_dir is None:
         output_dir = OUTPUT_DIRECTORY
     
-    # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
-    
-    # Create full file path
     full_path = os.path.join(output_dir, filename)
-    
+
     try:
         with open(full_path, 'w', newline='', encoding='utf-8') as csvfile:
-            writer = csv.writer(csvfile)
-            
-            # Write headers
-            writer.writerow(headers)
-            
-            # Write data rows
-            writer.writerows(data)
+            if isinstance(data, list) and data and isinstance(data[0], dict):
+                # Clean empty keys (like '') if present
+                sanitized_data = [
+                    {k: v for k, v in row.items() if k.strip() != ''}
+                    for row in data
+                ]
+                writer = csv.DictWriter(csvfile, fieldnames=headers)
+                writer.writeheader()
+                writer.writerows(sanitized_data)
+            else:
+                writer = csv.writer(csvfile)
+                writer.writerow(headers)
+                writer.writerows(data)
         
         print(f"CSV file saved successfully: {full_path}")
         print(f"Total rows written: {len(data)}")
         return full_path
-        
+
     except Exception as e:
         print(f"Error saving CSV file: {e}")
         raise
+
 
 def save_to_csv_with_timestamp(filename, headers, data, output_dir=None):
     """
