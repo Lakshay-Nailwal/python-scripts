@@ -10,20 +10,20 @@ load_dotenv('config.env')
 token_cache = []
 
 def fetch_warehouse_id(connection, tenant):
-    query = "SELECT id FROM mercury.warehouse WHERE is_setup = 1 AND tenant = %s LIMIT 1"
+    query = "SELECT id FROM warehouse WHERE is_setup = 1 AND tenant = %s LIMIT 1"
     try:
         with connection.cursor() as cursor:
-            cursor.execute(query, (tenant,))
+            cursor.execute(query, (tenant))
             result = cursor.fetchone()
-            return result["id"] if result else None
+            return result[0]
     except Exception as e:
         print(f"Failed to fetch warehouse ID for tenant {tenant}: {e}")
         return None
 
 def switch_token(warehouse_id, tenant):
-    url = f'https://wms.mercuryonline.co/api/user/auth/switch/warehouse/{warehouse_id}'
+    url = f'https://wms.mercuryonline.co/api/user/auth/switch/warehouse/{warehouse_id}'    
     headers = {
-        'Authorization': f'{os.getenv("ERP_TOKEN")}',
+        'Authorization': f'{os.getenv("EPR_TOKEN")}',
         'Content-Type': 'application/json'
     }
     try:
