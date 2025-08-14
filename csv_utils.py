@@ -62,7 +62,7 @@ def save_to_csv_with_timestamp(filename, headers, data, output_dir=None):
     
     return save_to_csv(timestamped_filename, headers, data, output_dir)
 
-def append_to_csv(filename, data, output_dir=None):
+def append_to_csv(filename, headers,data, output_dir=None , needLogs = True):
     """
     Append data to existing CSV file.
     
@@ -78,14 +78,17 @@ def append_to_csv(filename, data, output_dir=None):
         output_dir = OUTPUT_DIRECTORY
     
     full_path = os.path.join(output_dir, filename)
-    
+    file_exists = os.path.isfile(full_path)
     try:
         with open(full_path, 'a', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
+            if not file_exists:
+                writer.writerow(headers)
             writer.writerows(data)
         
-        print(f"Data appended to CSV file: {full_path}")
-        print(f"Rows appended: {len(data)}")
+        if(needLogs):
+            print(f"Data appended to CSV file: {full_path}")
+            print(f"Rows appended: {len(data)}")
         return full_path
         
     except Exception as e:

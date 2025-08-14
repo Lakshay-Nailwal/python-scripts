@@ -10,9 +10,10 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from getDBConnection import create_db_connection
 from token_switcher import get_token_for_tenant
+from csv_utils import save_to_csv
 
 # Input CSV file path
-INPUT_CSV = "/Users/lakshay.nailwal/Desktop/CSV_FILES/dest_invioce_not_created.csv"
+INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/CSV_FILES/dest_invioce_not_created_output_STR_v3.csv"
 
 # Set to track already processed debit note numbers
 already_processed = set()
@@ -33,6 +34,8 @@ def process_csv():
 
             already_processed.add(sourceDebitNoteNumber)
             sourceTenant = row["source_tenant"]
+
+            print(sourceDebitNoteNumber , sourceTenant , destTenant)
 
             # Step 1: Get purchase_issue IDs from source tenant DB
             try:
@@ -70,7 +73,7 @@ def process_csv():
                 'Content-Type': 'application/json'
             }
 
-            # Step 3: Make the API call with raw list of IDs
+            # # Step 3: Make the API call with raw list of IDs
             try:
                 response = requests.post(url, headers=headers, json=ids, timeout=120)
                 if response.status_code == 200:
@@ -78,11 +81,11 @@ def process_csv():
                 else:
                     print(f"[ERROR] API call failed for tenant {sourceTenant}, DN: {sourceDebitNoteNumber}")
                     print(f"Status: {response.status_code}, Response: {response.text}")
-                    failed_cases.append({"debitNote": sourceDebitNoteNumber, "tenant": sourceTenant, "message": response.text})
+                    failed_cases.append([sourceDebitNoteNumber, sourceTenant, response.text ,  destTenant])
             except requests.RequestException as e:
                 print(f"[EXCEPTION] API request error for tenant {sourceTenant}, DN: {sourceDebitNoteNumber}")
                 print(e)
-                failed_cases.append({"debitNote": sourceDebitNoteNumber, "tenant": sourceTenant, "message": e})
+                failed_cases.append([sourceDebitNoteNumber, sourceTenant, e ,  destTenant])
 
             # Step 4: Wait 1 second to avoid overloading API
             time.sleep(1)
@@ -92,5 +95,6 @@ if __name__ == "__main__":
     process_csv()
     print("unique dc attemp", len(already_processed))
     print("failed_cases", failed_cases)
+    save_to_csv("failed_cases_for_STR_retry.csv" , ["source_debit_note_number" , "source_tenant" , "message" , "dest_tenant"] , failed_cases)
     print("purchase_issue_ids", len(purchase_issue_ids))
 

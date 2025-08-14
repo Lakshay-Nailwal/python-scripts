@@ -50,7 +50,7 @@ def process_csv():
             try:
                 connection = create_db_connection(db_name)
                 cursor = connection.cursor()
-                cursor.execute("SELECT 1 FROM inward_invoice_item WHERE code = %s LIMIT 1", (ucode,))
+                cursor.execute("SELECT 1 FROM inward_invoice_item iii join inward_invoice ii on ii.id = iii.invoice_id WHERE code = %s AND ii.status = 'live' AND ii.purchase_type not in ('ICSReturn' , 'StockTransferReturn')", (ucode,))
                 result = cursor.fetchone()
                 row["isUcodeMissingInDestination"] = "No" if result else "Yes"
                 already_processed[(db_name, ucode)] = row["isUcodeMissingInDestination"]

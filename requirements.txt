@@ -2,6 +2,9 @@
 pymysql==1.1.0
 python-dotenv==1.0.0
 
+# HTTP requests dependency
+requests==2.31.0
+
 # Kafka dependencies
 confluent-kafka==2.3.0
 
