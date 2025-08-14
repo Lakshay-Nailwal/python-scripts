@@ -1,0 +1,3 @@
+debitNote,source_tenant,ucode,batch,message
+DR0402-25A000184,th402,Y77531,RHVAE241101,"{""error"":""Request processing failed"",""message"":""Invoice details not found for ucode: Y77531, batch: RHVAE240901 for tenant: th400""}"
+DR0402-25A000185,th402,198349,PT218,"{""error"":""Request processing failed"",""message"":""Invoice details not found for ucode: 198349, batch: PT-864 for tenant: th400""}"

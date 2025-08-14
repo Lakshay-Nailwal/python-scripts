@@ -1,0 +1,907 @@
+source_debit_note_number,dest_tenant,source_tenant,id_in_inward_invoice,partner_detail_id_in_inward_invoice,status_in_inward_invoice,purchase_type_in_inward_invoice,purchase_issue_id,invoice_id,invoice_no,debit_note_number,invoice_sequence_type,tray_id,invoice_date,invoice_tenant,partner_detail_id_in_purchase_issue,child_tenant_partner_detail_id,isInvoiceTenantDifferent,isST_ICS_Condition_Cause,updated_invoice_id,updated_invoice_no,updated_invoice_tenant,update_Query,delete_Query,update_uni_vendor_query
+DR0411-25A000012,th402,th411,152512,188552,live,StockTransfer,156423,152512,A0400-24A0002079,DR0411-25A000012,DELIVERY_CHALLAN,,2025-07-04 10:31:41,,37678,,,True,,,,"
+                UPDATE th411.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0411-25A000012' and invoice_id = 152512 and invoice_no = 'A0400-24A0002079'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 156423 and reference_type = 'PURCHASE_RETURN'
+                "
+P0224-25A0000202,th425,th224,820269,183381,live,ICS,779990,820269,T0223-25A0000331,P0224-25A0000202,DEBIT_NOTE_NUMBER,,2025-07-21 11:53:01,,37923,,,True,,,,"
+                UPDATE th224.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0224-25A0000202' and invoice_id = 820269 and invoice_no = 'T0223-25A0000331'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 779990 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000050,th411,th417,19366,3449,live,ICS,25166,19366,MP-24-133259,P0417-25A0000050,DEBIT_NOTE_NUMBER,TR-108,2025-07-26 04:45:29,th413,37916,,True,True,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000050' and invoice_id = 19366 and invoice_no = 'MP-24-133259'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 25166 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,25457,61,live,PROCUREMENT,26033,25457,T0429-25A0000749,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 08:57:29,th418,191768,,True,False,36221,T0429-25A0000382,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 25457 and invoice_no = 'T0429-25A0000749'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26033 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,37548,191768,live,ICS,26048,37548,T0429-25A0002192,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 37548 and invoice_no = 'T0429-25A0002192'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26048 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,25978,32262,live,PROCUREMENT,26051,25978,T0429-25A0001699,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th418,191768,,True,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 25978 and invoice_no = 'T0429-25A0001699'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26051 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,36454,191768,live,ICS,26066,36454,T0429-25A0000688,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 08:57:29,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 36454 and invoice_no = 'T0429-25A0000688'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26066 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,26025,61,live,RECTIFICATION,26069,26025,T0429-25A0001823,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th418,191768,,True,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 26025 and invoice_no = 'T0429-25A0001823'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26069 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,38718,191768,live,ICS,26124,38718,T0429-25A0003941,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 38718 and invoice_no = 'T0429-25A0003941'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26124 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,38495,191768,live,ICS,26135,38495,T0429-25A0003708,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 38495 and invoice_no = 'T0429-25A0003708'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26135 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,,,,,26161,40497,T0429-25A0000605,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th413,191768,,True,(),,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 40497 and invoice_no = 'T0429-25A0000605'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26161 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,38858,191768,live,ICS,26162,38858,T0429-25A0004111,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 08:57:29,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 38858 and invoice_no = 'T0429-25A0004111'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26162 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,26065,74943,live,SALES_RETURN,26203,26065,T0429-25A0001851,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 08:57:29,th418,191768,,True,False,37929,T0429-25A0002770,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 26065 and invoice_no = 'T0429-25A0001851'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26203 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,40245,3449,StockHidden,ICS,26207,40245,T0429-25A0000250,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th413,191768,,True,True,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 40245 and invoice_no = 'T0429-25A0000250'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26207 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,37518,191768,live,ICS,26220,37518,T0429-25A0002135,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 08:57:29,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 37518 and invoice_no = 'T0429-25A0002135'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26220 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,,,,,26221,57688,T0429-25A0002892,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th435,191768,,True,(),38289,T0429-25A0003455,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 57688 and invoice_no = 'T0429-25A0002892'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26221 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,,,,,26222,41441,T0429-25A0001865,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 08:57:29,th413,191768,,True,(),37494,T0429-25A0002066,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 41441 and invoice_no = 'T0429-25A0001865'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26222 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,38972,191768,live,ICS,26338,38972,T0429-25A0004230,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 38972 and invoice_no = 'T0429-25A0004230'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26338 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000051,th429,th417,38900,191768,live,ICS,26494,38900,T0429-25A0004158,P0417-25A0000051,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 08:57:29,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000051' and invoice_id = 38900 and invoice_no = 'T0429-25A0004158'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26494 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000053,th429,th417,,,,,26475,41801,T0429-25A0002401,P0417-25A0000053,DEBIT_NOTE_NUMBER,TR-495,2025-07-28 10:48:43,th413,191768,,True,(),37018,T0429-25A0001596,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000053' and invoice_id = 41801 and invoice_no = 'T0429-25A0002401'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26475 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0402-25A000184,th400,th402,,,,,79228,,,DR0402-25A000184,DELIVERY_CHALLAN,TR-46693,2025-07-28 11:20:20,,183479,173725,,(),,,,"
+                UPDATE th402.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0402-25A000184' and invoice_id = None and invoice_no = 'None'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 79228 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0402-25A000184,th400,th402,,,,,80169,,,DR0402-25A000184,DELIVERY_CHALLAN,TR-58464,2025-07-28 11:20:20,,183479,173725,,(),,,,"
+                UPDATE th402.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0402-25A000184' and invoice_id = None and invoice_no = 'None'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 80169 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0402-25A000185,th400,th402,,,,,78457,,,DR0402-25A000185,DELIVERY_CHALLAN,TR-50099,2025-07-28 11:20:36,,183479,173725,,(),,,,"
+                UPDATE th402.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0402-25A000185' and invoice_id = None and invoice_no = 'None'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 78457 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0402-25A000185,th400,th402,,,,,79540,,,DR0402-25A000185,DELIVERY_CHALLAN,TR-54015,2025-07-28 11:20:36,,183479,173725,,(),,,,"
+                UPDATE th402.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0402-25A000185' and invoice_id = None and invoice_no = 'None'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 79540 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,22806,3450,live,ICS,24512,22806,T0214-25A0002624,P0417-25A0000054,DEBIT_NOTE_NUMBER,tr-237,2025-07-28 11:29:16,th418,3449,,True,True,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 22806 and invoice_no = 'T0214-25A0002624'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 24512 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,37146,3449,live,ICS,24610,37146,T0214-25A0009085,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-392,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 37146 and invoice_no = 'T0214-25A0009085'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 24610 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,39070,206673,live,RECTIFICATION,25646,39070,T0214-25A0005898,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-206,2025-07-28 11:29:16,th413,3449,,True,False,38008,T0214-25A0010607,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 39070 and invoice_no = 'T0214-25A0005898'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 25646 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,39204,3449,live,ICS,26072,39204,T0214-25A0012684,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 39204 and invoice_no = 'T0214-25A0012684'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26072 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,34477,3449,live,ICS,26083,34477,T0214-25A0004746,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 34477 and invoice_no = 'T0214-25A0004746'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26083 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,35250,3449,live,ICS,26086,35250,T0214-25A0006619,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-100,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 35250 and invoice_no = 'T0214-25A0006619'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26086 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,23677,79637,live,SALES_RETURN,26087,23677,T0214-25A0004194,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-100,2025-07-28 11:29:16,th418,3449,,True,False,34430,T0214-25A0004595,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 23677 and invoice_no = 'T0214-25A0004194'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26087 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,38983,38165,live,PROCUREMENT,26088,38983,T0214-25A0005723,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th413,3449,,True,False,36708,T0214-25A0008517,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 38983 and invoice_no = 'T0214-25A0005723'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26088 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,34443,3449,live,ICS,26089,34443,T0214-25A0004646,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 34443 and invoice_no = 'T0214-25A0004646'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26089 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,23728,3566,live,PROCUREMENT,26091,23728,T0214-25A0004311,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 11:29:16,th418,3449,,True,False,39574,T0214-25A0013489,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 23728 and invoice_no = 'T0214-25A0004311'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26091 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,,,,,26131,54807,T0214-25A0007663,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-305,2025-07-28 11:29:16,th435,3449,,True,(),,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 54807 and invoice_no = 'T0214-25A0007663'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26131 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,36980,3449,live,ICS,26142,36980,T0214-25A0008795,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 36980 and invoice_no = 'T0214-25A0008795'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26142 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,39079,3449,live,ICS,26144,39079,T0214-25A0012450,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 39079 and invoice_no = 'T0214-25A0012450'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26144 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,39204,3449,live,ICS,26146,39204,T0214-25A0012684,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 39204 and invoice_no = 'T0214-25A0012684'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26146 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,39204,3449,live,ICS,26147,39204,T0214-25A0012684,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 39204 and invoice_no = 'T0214-25A0012684'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26147 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,,,,,26242,58401,T0214-25A0011040,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th435,3449,,True,(),,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 58401 and invoice_no = 'T0214-25A0011040'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26242 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,26488,75238,live,SALES_RETURN,26295,26488,T0214-25A0009879,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 11:29:16,th418,3449,,True,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 26488 and invoice_no = 'T0214-25A0009879'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26295 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,24374,75406,live,SALES_RETURN,26302,24374,T0214-25A0006070,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-437,2025-07-28 11:29:16,th418,3449,,True,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 24374 and invoice_no = 'T0214-25A0006070'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26302 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,38487,76832,live,SALES_RETURN,26305,38487,T0214-25A0004457,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-100,2025-07-28 11:29:16,th413,3449,,True,False,35743,T0214-25A0007366,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 38487 and invoice_no = 'T0214-25A0004457'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26305 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,38877,3449,live,ICS,26335,38877,T0214-25A0012156,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 38877 and invoice_no = 'T0214-25A0012156'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26335 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,38918,3449,live,ICS,26336,38918,T0214-25A0012227,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 38918 and invoice_no = 'T0214-25A0012227'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26336 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000054,th214,th417,38529,3449,live,ICS,26493,38529,T0214-25A0011471,P0417-25A0000054,DEBIT_NOTE_NUMBER,TR-749,2025-07-28 11:29:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000054' and invoice_id = 38529 and invoice_no = 'T0214-25A0011471'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26493 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,39300,3449,live,ICS,26592,39300,T0214-25A0012974,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 39300 and invoice_no = 'T0214-25A0012974'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26592 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,39405,3449,live,ICS,26598,39405,T0214-25A0013281,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 39405 and invoice_no = 'T0214-25A0013281'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26598 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,39395,3449,live,ICS,26599,39395,T0214-25A0013249,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 39395 and invoice_no = 'T0214-25A0013249'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26599 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,39419,3449,live,ICS,26600,39419,T0214-25A0013299,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 39419 and invoice_no = 'T0214-25A0013299'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26600 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,24980,4727,live,RECTIFICATION,26611,24980,T0214-25A0007643,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:54:16,th418,3449,,True,False,37394,T0214-25A0009397,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 24980 and invoice_no = 'T0214-25A0007643'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26611 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,37097,3449,live,ICS,26618,37097,T0214-25A0008948,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 37097 and invoice_no = 'T0214-25A0008948'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26618 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,38004,3449,live,ICS,26650,38004,T0214-25A0010598,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 38004 and invoice_no = 'T0214-25A0010598'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26650 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,,,,,26660,57041,T0214-25A0009673,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:54:16,th435,3449,,True,(),38678,T0214-25A0011768,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 57041 and invoice_no = 'T0214-25A0009673'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26660 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,25046,3566,live,PROCUREMENT,26661,25046,T0214-25A0007791,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:54:16,th418,3449,,True,False,39112,T0214-25A0012536,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 25046 and invoice_no = 'T0214-25A0007791'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26661 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,34946,3449,live,ICS,26668,34946,T0214-25A0005782,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 34946 and invoice_no = 'T0214-25A0005782'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26668 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,39316,3449,live,ICS,26686,39316,T0214-25A0012994,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 39316 and invoice_no = 'T0214-25A0012994'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26686 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,39393,3449,live,ICS,26687,39393,T0214-25A0013244,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 39393 and invoice_no = 'T0214-25A0013244'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26687 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,39315,3449,live,ICS,26702,39315,T0214-25A0012993,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 39315 and invoice_no = 'T0214-25A0012993'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26702 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000055,th214,th417,39315,3449,live,ICS,26703,39315,T0214-25A0012993,P0417-25A0000055,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:54:16,th417,3449,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000055' and invoice_id = 39315 and invoice_no = 'T0214-25A0012993'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26703 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000056,th429,th417,36647,191768,live,ICS,26501,36647,T0429-25A0001126,P0417-25A0000056,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:57:23,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000056' and invoice_id = 36647 and invoice_no = 'T0429-25A0001126'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26501 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000056,th429,th417,39352,191768,live,ICS,26503,39352,T0429-25A0004584,P0417-25A0000056,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:57:23,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000056' and invoice_id = 39352 and invoice_no = 'T0429-25A0004584'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26503 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000056,th429,th417,,,,,26515,40645,T0429-25A0000874,P0417-25A0000056,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:57:23,th413,191768,,True,(),,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000056' and invoice_id = 40645 and invoice_no = 'T0429-25A0000874'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26515 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000056,th429,th417,37021,191768,live,ICS,26520,37021,T0429-25A0001606,P0417-25A0000056,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:57:23,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000056' and invoice_id = 37021 and invoice_no = 'T0429-25A0001606'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26520 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000056,th429,th417,35497,191768,live,ICS,26521,35497,T0429-25A0000028,P0417-25A0000056,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:57:23,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000056' and invoice_id = 35497 and invoice_no = 'T0429-25A0000028'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26521 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000056,th429,th417,25960,61,live,PROCUREMENT,26526,25960,T0429-25A0001687,P0417-25A0000056,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:57:23,th418,191768,,True,False,38742,T0429-25A0003980,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000056' and invoice_id = 25960 and invoice_no = 'T0429-25A0001687'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26526 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000056,th429,th417,36381,191768,live,ICS,26573,36381,T0429-25A0000613,P0417-25A0000056,DEBIT_NOTE_NUMBER,TR-749,2025-07-29 08:57:23,th417,191768,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000056' and invoice_id = 36381 and invoice_no = 'T0429-25A0000613'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26573 and reference_type = 'PURCHASE_RETURN'
+                "
+P0417-25A0000056,th429,th417,,,,,26578,,,P0417-25A0000056,DEBIT_NOTE_NUMBER,TR-437,2025-07-29 08:57:23,th435,191768,,True,(),36619,T0429-25A0001102,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0417-25A0000056' and invoice_id = None and invoice_no = 'None'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26578 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0417-25A000150,th435,th417,27485,61,live,PROCUREMENT,26580,27485,D0435-25A0001024,DR0417-25A000150,DELIVERY_CHALLAN,TR-437,2025-07-29 09:00:28,th418,206328,,True,False,38976,D0435-25A0001026,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0417-25A000150' and invoice_id = 27485 and invoice_no = 'D0435-25A0001024'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26580 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0417-25A000150,th435,th417,36279,206328,live,StockTransfer,26582,36279,D0435-25A0000231,DR0417-25A000150,DELIVERY_CHALLAN,TR-749,2025-07-29 09:00:28,th417,206328,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0417-25A000150' and invoice_id = 36279 and invoice_no = 'D0435-25A0000231'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26582 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0417-25A000150,th435,th417,,,,,26588,41744,D0435-25A0000643,DR0417-25A000150,DELIVERY_CHALLAN,TR-749,2025-07-29 09:00:28,th413,206328,,True,(),37723,D0435-25A0000645,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0417-25A000150' and invoice_id = 41744 and invoice_no = 'D0435-25A0000643'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26588 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0417-25A000150,th435,th417,,,,,26595,40494,D0435-25A0000272,DR0417-25A000150,DELIVERY_CHALLAN,TR-437,2025-07-29 09:00:28,th413,206328,,True,(),36724,D0435-25A0000321,th417,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0417-25A000150' and invoice_id = 40494 and invoice_no = 'D0435-25A0000272'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26595 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0417-25A000150,th435,th417,39230,206328,live,StockTransfer,26683,39230,D0435-25A0001042,DR0417-25A000150,DELIVERY_CHALLAN,TR-749,2025-07-29 09:00:28,th417,206328,,False,False,,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0417-25A000150' and invoice_id = 39230 and invoice_no = 'D0435-25A0001042'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26683 and reference_type = 'PURCHASE_RETURN'
+                "
+DR0417-25A000160,th413,th417,,,,,26093,43106,NAG-23-92238,DR0417-25A000160,DELIVERY_CHALLAN,TR-506,2025-07-29 09:42:02,th435,37894,,True,(),,,,"
+                UPDATE th417.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'DR0417-25A000160' and invoice_id = 43106 and invoice_no = 'NAG-23-92238'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 26093 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,43636,191768,live,ICS,45835,43636,T0429-25A0004845,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-44,2025-07-29 11:15:11,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 43636 and invoice_no = 'T0429-25A0004845'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45835 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,43636,191768,live,ICS,45836,43636,T0429-25A0004845,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-44,2025-07-29 11:15:11,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 43636 and invoice_no = 'T0429-25A0004845'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45836 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,43636,191768,live,ICS,45837,43636,T0429-25A0004845,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-23,2025-07-29 11:15:11,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 43636 and invoice_no = 'T0429-25A0004845'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45837 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,43581,191768,live,ICS,45838,43581,T0429-25A0004761,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-23,2025-07-29 11:15:11,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 43581 and invoice_no = 'T0429-25A0004761'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45838 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,40394,191768,live,ICS,45839,40394,T0429-25A0000401,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-23,2025-07-29 11:15:11,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 40394 and invoice_no = 'T0429-25A0000401'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45839 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,,,,,45841,55822,T0429-25A0000758,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-23,2025-07-29 11:15:11,th435,191768,,True,(),,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 55822 and invoice_no = 'T0429-25A0000758'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45841 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,25458,37678,live,ICS,45843,25458,T0429-25A0000750,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-23,2025-07-29 11:15:11,th418,191768,,True,True,41959,T0429-25A0002676,th413,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 25458 and invoice_no = 'T0429-25A0000750'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45843 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,43033,191768,live,ICS,45846,43033,T0429-25A0004201,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-23,2025-07-29 11:15:11,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 43033 and invoice_no = 'T0429-25A0004201'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45846 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,43527,191768,live,ICS,45857,43527,T0429-25A0004708,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-23,2025-07-29 11:15:11,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 43527 and invoice_no = 'T0429-25A0004708'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45857 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000263,th429,th413,27210,3566,live,PROCUREMENT,45858,27210,T0429-25A0003801,P0413-25A0000263,DEBIT_NOTE_NUMBER,TR-1468,2025-07-29 11:15:11,th418,191768,,True,False,42854,T0429-25A0003964,th413,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000263' and invoice_id = 27210 and invoice_no = 'T0429-25A0003801'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45858 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,43731,191768,live,ICS,45880,43731,T0429-25A0004922,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 43731 and invoice_no = 'T0429-25A0004922'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45880 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,40335,191768,live,ICS,45889,40335,T0429-25A0000343,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 40335 and invoice_no = 'T0429-25A0000343'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45889 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,40549,191768,live,ICS,45890,40549,T0429-25A0000676,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 40549 and invoice_no = 'T0429-25A0000676'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45890 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,41631,191768,live,ICS,45892,41631,T0429-25A0002198,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 41631 and invoice_no = 'T0429-25A0002198'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45892 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,43389,191768,live,ICS,45918,43389,T0429-25A0004601,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 43389 and invoice_no = 'T0429-25A0004601'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45918 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,36606,3449,live,ICS,45921,36606,T0429-25A0001041,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th417,191768,,True,True,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 36606 and invoice_no = 'T0429-25A0001041'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45921 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,43562,191768,live,ICS,45922,43562,T0429-25A0004751,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 43562 and invoice_no = 'T0429-25A0004751'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45922 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,,,,,45924,58940,T0429-25A0003712,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th435,191768,,True,(),,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 58940 and invoice_no = 'T0429-25A0003712'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45924 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,43754,191768,live,ICS,45925,43754,T0429-25A0004952,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 43754 and invoice_no = 'T0429-25A0004952'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 45925 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,43824,191768,live,ICS,46000,43824,T0429-25A0005059,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 43824 and invoice_no = 'T0429-25A0005059'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 46000 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,43818,191768,live,ICS,46001,43818,T0429-25A0005050,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-23,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 43818 and invoice_no = 'T0429-25A0005050'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 46001 and reference_type = 'PURCHASE_RETURN'
+                "
+P0413-25A0000280,th429,th413,43747,191768,live,ICS,46065,43747,T0429-25A0004944,P0413-25A0000280,DEBIT_NOTE_NUMBER,TR-112,2025-08-04 03:39:32,th413,191768,,False,False,,,,"
+                UPDATE th413.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0413-25A0000280' and invoice_id = 43747 and invoice_no = 'T0429-25A0004944'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 46065 and reference_type = 'PURCHASE_RETURN'
+                "
+P0411-25A0000071,ar400,th411,176308,37678,live,ICS,167588,176308,T0402-25A0003837,P0411-25A0000071,DEBIT_NOTE_NUMBER,TR-34510,2025-08-04 12:35:36,th411,188552,,False,True,,,,"
+                UPDATE th411.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0411-25A0000071' and invoice_id = 176308 and invoice_no = 'T0402-25A0003837'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 167588 and reference_type = 'PURCHASE_RETURN'
+                "
+P0411-25A0000076,th403,th411,181066,37678,live,ICS,192656,181066,T0402-25A0004542,P0411-25A0000076,DEBIT_NOTE_NUMBER,TR-23664,2025-08-05 08:17:06,th411,37879,,False,True,,,,"
+                UPDATE th411.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0411-25A0000076' and invoice_id = 181066 and invoice_no = 'T0402-25A0004542'
+                ",,"
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 192656 and reference_type = 'PURCHASE_RETURN'
+                "
+P0411-25A0000077,th402,th411,158679,188552,live,StockTransfer,138688,158679,A0400-24A0003212,P0411-25A0000077,DEBIT_NOTE_NUMBER,TR-23664,2025-08-05 10:42:23,,37678,,,True,,,,"
+                UPDATE th411.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0411-25A0000077' and invoice_id = 158679 and invoice_no = 'A0400-24A0003212'
+                ","
+                DELETE FROM th411.purchase_issue_invoice
+                WHERE id in [78959]
+                ","
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 138688 and reference_type = 'PURCHASE_RETURN'
+                "
+P0411-25A0000077,th402,th411,159008,188552,live,StockTransfer,141589,159008,A0400-24A0003311,P0411-25A0000077,DEBIT_NOTE_NUMBER,TR-23664,2025-08-05 10:42:23,,37678,,,True,,,,"
+                UPDATE th411.purchase_issue
+                SET invoice_id = NULL, invoice_no = NULL, invoice_tenant = NULL, updated_on = NOW()
+                WHERE debit_note_number = 'P0411-25A0000077' and invoice_id = 159008 and invoice_no = 'A0400-24A0003311'
+                ","
+                DELETE FROM th411.purchase_issue_invoice
+                WHERE id in [80266]
+                ","
+                UPDATE unified_vendor_returnable_item
+                SET quantity = 0 , updated_on = NOW(), status = 'CANCELLED'
+                WHERE reference_id = 141589 and reference_type = 'PURCHASE_RETURN'
+                "

@@ -1,0 +1,5 @@
+source_tenant,purchase_issue_id,debit_note_number,tray_id,dest_tenant,purchase_issue_item_id,purchase_issue_item_ucode,purchase_issue_item_batch,purchase_issue_item_quantity,purchase_issue_item_assigned_bin,pre_purchase_issue_id,delete_purchase_issue_item,delete_purchase_issue_invoice,update_pre_purchase_issue_id
+th214,653137,,,th213,683113,H12756,6843,5,,616990,DELETE FROM purchase_issue_item WHERE id = 683113;,,"UPDATE pre_purchase_issue_order SET updated_on = NOW(), status = 'CREATED' WHERE id = 616990;"
+th214,653137,,,th213,683118,W53806,1903116,1,,616979,DELETE FROM purchase_issue_item WHERE id = 683118;,,"UPDATE pre_purchase_issue_order SET updated_on = NOW(), status = 'CREATED' WHERE id = 616979;"
+th214,653137,,,th213,683119,373863,PT2208880,1,,616978,DELETE FROM purchase_issue_item WHERE id = 683119;,,"UPDATE pre_purchase_issue_order SET updated_on = NOW(), status = 'CREATED' WHERE id = 616978;"
+th214,653137,,,th213,683122,L58032,GP20001A,1,,616975,DELETE FROM purchase_issue_item WHERE id = 683122;,,"UPDATE pre_purchase_issue_order SET updated_on = NOW(), status = 'CREATED' WHERE id = 616975;"

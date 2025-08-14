@@ -44,6 +44,18 @@ def validateInvoice(db_name, invoiceId, pdi):
         return False
     return invoice["purchase_type"] in ("ICS", "StockTransfer") and invoice["partner_detail_id"] == pdi
 
+def hasInvoiceInPurchaseIssueInvoice(db_name, purchaseIssueId):
+    connection = create_db_connection(db_name)
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+    cursor.execute(
+        "SELECT * FROM purchase_issue_invoice WHERE purchase_issue_id = %s",
+        (purchaseIssueId,)
+    )
+    result = cursor.fetchone()
+    cursor.close()
+    connection.close()
+    return result is not None
+
 def makeInvoiceDetailsNullFromPR():
     with open(INPUT_CSV, newline='') as infile:
         reader = csv.DictReader(infile)
@@ -83,12 +95,13 @@ def makeInvoiceDetailsNullFromPR():
                             f"AND reference_type = 'PURCHASE_RETURN' AND partner_detail_id = {purchaseIssue['partner_detail_id']} AND tenant = '{db_name}';"
                         )
 
-                        deletePurchaseIssueInvoiceQuery = (
-                            f"DELETE FROM {db_name}.purchase_issue_invoice "
-                            f"WHERE purchase_issue_id = {purchaseIssue['id']} "
-                            f"AND invoice_id = {invoiceId} "
-                            f"AND invoice_no = '{invoice_no}';"
-                        )
+
+                        deletePurchaseIssueInvoiceQuery = ""
+                        if hasInvoiceInPurchaseIssueInvoice(db_name, purchaseIssue['id']):
+                            deletePurchaseIssueInvoiceQuery = (
+                                f"DELETE FROM {db_name}.purchase_issue_invoice "
+                                f"WHERE purchase_issue_id = {purchaseIssue['id']};"
+                            )
 
                         data.append([
                             source_debit_note_number,

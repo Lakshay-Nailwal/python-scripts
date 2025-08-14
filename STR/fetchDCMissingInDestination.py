@@ -25,6 +25,7 @@ def fetchDistinctDebitNoteNumbersWithPdi(tenant, pdis):
         query = f"""
             SELECT DISTINCT debit_note_number, partner_detail_id
             FROM purchase_issue
+            JOIN purchase_issue_item ON purchase_issue.id = purchase_issue_item.purchase_issue_id
             WHERE debit_note_number IS NOT NULL
             AND invoice_date > '2025-05-28'
             AND pr_type <> 'REGULAR_EASYSOL'
@@ -54,9 +55,10 @@ def fetchDCForTenant(tenant, listOfDcs):
         return []
 
 def fetchDCForAllTenants(warehouse):
-    final_data = []
     
     for tenant_info in warehouse:
+        final_data = []
+        
         tenant = tenant_info[0] if isinstance(tenant_info, (list, tuple)) else str(tenant_info)
         print("Processing tenant:", tenant)
         
@@ -80,13 +82,13 @@ def fetchDCForAllTenants(warehouse):
                 if dc not in destDCNumbers:
                     final_data.append([dc, dest_tenant, tenant])
     
-    if final_data:
-        append_to_csv(
-            "dest_invoice_not_created_output_STR.csv",
-            ["source_debit_note_number", "dest_tenant", "source_tenant"],
-            final_data,
-            OUTPUT_DIR
-        )
+        if final_data:
+            append_to_csv(
+                "dest_invoice_not_created_output_STR.csv",
+                ["source_debit_note_number", "dest_tenant", "source_tenant"],
+                final_data,
+                OUTPUT_DIR
+            )
 
 if __name__ == "__main__":
     theas = getAllWarehouse()

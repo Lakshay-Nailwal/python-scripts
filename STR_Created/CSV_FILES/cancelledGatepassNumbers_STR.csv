@@ -1,0 +1,2 @@
+source_debit_note_number,dest_tenant,source_tenant,cancelGatepassQuery
+DR0401-25A000029,th224,th401,UPDATE th224.gatepass_invoice SET status = 'CANCELLED' WHERE id = 1578068 and no = 'DR0401-25A000029' and status = 'CREATED';

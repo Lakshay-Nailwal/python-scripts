@@ -1,0 +1,11 @@
+query,source_tenant,dest_tenant,source_debit_note_number
+"UPDATE th402.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 78453 and debit_note_number = 'DR0402-25A000184' and status = 'DELIVERED;'",th402,th400,DR0402-25A000184
+"UPDATE th402.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 80163 and debit_note_number = 'DR0402-25A000203' and status = 'DELIVERED;'",th402,th400,DR0402-25A000203
+"UPDATE th402.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 78702 and debit_note_number = 'DR0402-25A000217' and status = 'DELIVERED;'",th402,th400,DR0402-25A000217
+"UPDATE th402.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 79177 and debit_note_number = 'DR0402-25A000219' and status = 'DELIVERED;'",th402,th400,DR0402-25A000219
+"UPDATE th402.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 79178 and debit_note_number = 'DR0402-25A000219' and status = 'DELIVERED;'",th402,th400,DR0402-25A000219
+"UPDATE th402.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 79505 and debit_note_number = 'DR0402-25A000234' and status = 'DELIVERED;'",th402,th400,DR0402-25A000234
+"UPDATE th205.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 306410 and debit_note_number = 'DR0205-25A000041' and status = 'READY_FOR_DELIVERY;'",th205,th223,DR0205-25A000041
+"UPDATE th406.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 14150 and debit_note_number = 'DR0406-25A000129' and status = 'READY_FOR_DELIVERY;'",th406,th223,DR0406-25A000129
+"UPDATE th406.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 14155 and debit_note_number = 'DR0406-25A000131' and status = 'READY_FOR_DELIVERY;'",th406,th223,DR0406-25A000131
+"UPDATE th214.purchase_issue set updated_on = NOW(), status = 'CANCELLED' where id = 359651 and debit_note_number = 'DR0214-25A002408' and status = 'READY_FOR_DELIVERY;'",th214,th411,DR0214-25A002408

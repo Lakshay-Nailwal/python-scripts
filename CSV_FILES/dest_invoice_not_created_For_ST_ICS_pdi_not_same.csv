@@ -1,0 +1,3 @@
+source_debit_note_number,dest_tenant,source_tenant,id_in_inward_invoice,partner_detail_id_in_inward_invoice,status_in_inward_invoice,purchase_type_in_inward_invoice,purchase_issue_id,invoice_id,invoice_no,debit_note_number,invoice_sequence_type,tray_id,invoice_date,invoice_tenant,partner_detail_id_in_purchase_issue,child_tenant_partner_detail_id
+P0411-25A0000071,ar400,th411,176308,37678,live,ICS,167588,176308,T0402-25A0003837,P0411-25A0000071,DEBIT_NOTE_NUMBER,TR-34510,2025-08-04 12:35:36,th411,188552,
+P0411-25A0000076,th403,th411,181066,37678,live,ICS,192656,181066,T0402-25A0004542,P0411-25A0000076,DEBIT_NOTE_NUMBER,TR-23664,2025-08-05 08:17:06,th411,37879,
