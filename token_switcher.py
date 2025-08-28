@@ -10,7 +10,8 @@ load_dotenv('config.env')
 token_cache = []
 
 def fetch_warehouse_id(connection, tenant):
-    query = "SELECT id FROM warehouse WHERE is_setup = 1 AND tenant = %s LIMIT 1"
+    
+    query = "SELECT id FROM warehouse WHERE is_setup = 1 AND tenant = %s LIMIT 1" if not tenant.startswith('ar') else "SELECT id FROM arsenal WHERE is_setup = 1 AND tenant = %s LIMIT 1"
     try:
         with connection.cursor() as cursor:
             cursor.execute(query, (tenant))
@@ -20,8 +21,8 @@ def fetch_warehouse_id(connection, tenant):
         print(f"Failed to fetch warehouse ID for tenant {tenant}: {e}")
         return None
 
-def switch_token(warehouse_id, tenant):
-    url = f'https://wms.mercuryonline.co/api/user/auth/switch/warehouse/{warehouse_id}'    
+def switch_token(warehouse_id, tenant , warehouse_type = 'warehouse'):
+    url = f'https://wms.mercuryonline.co/api/user/auth/switch/{warehouse_type}/{warehouse_id}'    
     headers = {
         'Authorization': f'{os.getenv("EPR_TOKEN")}',
         'Content-Type': 'application/json'
@@ -58,9 +59,9 @@ def get_token_for_tenant(tenant):
     connection = create_db_connection('mercury')
     warehouse_id = fetch_warehouse_id(connection, tenant)
     connection.close()
-    
+    warehouse_type = 'arsenal' if tenant.startswith('ar') else 'warehouse'
     if warehouse_id:
-        return switch_token(warehouse_id, tenant)
+        return switch_token(warehouse_id, tenant , warehouse_type)
     else:
         print(f"No warehouse found for tenant: {tenant}")
         return None

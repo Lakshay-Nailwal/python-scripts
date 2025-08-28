@@ -13,7 +13,7 @@ from token_switcher import get_token_for_tenant
 from csv_utils import save_to_csv
 
 # Input CSV file path
-INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES/str_dn_validation_v2.csv"
+INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES/str_dn_validation_v3.csv"
 OUTPUT_DIR = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES"
 # Set to track already processed debit note numbers
 already_processed = set()
@@ -64,5 +64,5 @@ if __name__ == "__main__":
     process_csv()
     print("unique invoice attemp", len(already_processed))
     print("failed_cases", failed_cases)
-    save_to_csv("failed_cases_for_STR__DN_retry.csv" , ["invoice_id" , "invoice_no" , "message" , "tenant"] , failed_cases , OUTPUT_DIR)
+    save_to_csv("failed_cases_for_STR__DN_retry_v2.csv" , ["invoice_id" , "invoice_no" , "message" , "tenant"] , failed_cases , OUTPUT_DIR)
 

@@ -8,7 +8,7 @@ from getDBConnection import create_db_connection
 from csv_utils import save_to_csv
 
 OUTPUT_DIR = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES"
-INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES/str_dn_input.csv"
+INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES/GDN_ret_CN_null_arsenal.csv"
 
 def query_db(db_name, query, params=None, dict_cursor=True):
     """Run a DB query and return results."""
@@ -36,7 +36,7 @@ def process_csv():
     with open(INPUT_CSV, newline='') as infile:
         reader = csv.DictReader(infile)
         for row in reader:
-            invoiceId = row['transactionno']
+            invoiceId = int(float(row['transactionno']))
             invoiceNo = row['invoice_no']
             tenant = row['warehouseid']
 
@@ -55,7 +55,7 @@ def process_csv():
                 print(f"⚠️ Error checking invoice {invoiceNo} (tenant {tenant}): {e}")
 
     if( data ):
-        save_to_csv("str_dn_validation_v2.csv" , ['invoice_id' , 'invoice_no' , 'tenant'] , data , OUTPUT_DIR)
+        save_to_csv("str_dn_validation_v3.csv" , ['invoice_id' , 'invoice_no' , 'tenant'] , data , OUTPUT_DIR)
 
 process_csv()
 
