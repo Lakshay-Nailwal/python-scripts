@@ -27,7 +27,7 @@ def fetchDistinctDebitNoteNumbersWithPdi(tenant, pdis):
             FROM purchase_issue
             JOIN purchase_issue_item ON purchase_issue.id = purchase_issue_item.purchase_issue_id
             WHERE debit_note_number IS NOT NULL
-            AND invoice_date > '2025-05-28'
+            AND invoice_date >= '2025-05-28'
             AND pr_type <> 'REGULAR_EASYSOL'
             AND partner_detail_id IN ({placeholders})
         """
@@ -46,7 +46,7 @@ def fetchDCForTenant(tenant, listOfDcs):
         cursor = conn.cursor(pymysql.cursors.DictCursor)
         
         placeholders = ','.join(['%s'] * len(listOfDcs))
-        query = f"SELECT DISTINCT invoice_no FROM inward_invoice WHERE invoice_no IN ({placeholders})"
+        query = f"SELECT DISTINCT invoice_no FROM inward_invoice WHERE invoice_no IN ({placeholders}) and status NOT IN ('CANCELLED', 'DELETED')"
         cursor.execute(query, listOfDcs)
         return cursor.fetchall()
         
@@ -84,7 +84,7 @@ def fetchDCForAllTenants(warehouse):
     
         if final_data:
             append_to_csv(
-                "dest_invoice_not_created_output_STR.csv",
+                "dest_invoice_not_created_output_STR_v35.csv",
                 ["source_debit_note_number", "dest_tenant", "source_tenant"],
                 final_data,
                 OUTPUT_DIR

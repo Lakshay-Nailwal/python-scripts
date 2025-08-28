@@ -1,4 +1,1 @@
 source_debit_note_number,source_tenant,message,dest_tenant
-DR0214-25A001801,th214,upstream request timeout,th213
-DR0214-25A000409,th214,"{""error"":""Request processing failed"",""message"":""Invoice details not found for ucode: I40435, batch: 2208000408 for tenant: th213""}",th213
-DR0408-25A000110,th408,upstream request timeout,th411

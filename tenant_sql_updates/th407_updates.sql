@@ -1,0 +1,1 @@
+UPDATE th407.purchase_issue SET updated_on = NOW(), invoice_sequence_type = 'DEBIT_NOTE_NUMBER' WHERE id IN (12764,12765,20399,20400,20401,20898,20906,21368,21453,21604) AND invoice_sequence_type IS NULL;

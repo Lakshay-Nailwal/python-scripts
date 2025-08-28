@@ -151,7 +151,7 @@ def process_chunk(chunk, tenant, purchaseIssueIdToPdi, purchaseIssueIdToStatus):
             ]]
             with csv_lock:
                 append_to_csv(
-                    "purchase_issue_items_with_ucode_missing_in_dest_for_non_dc.csv",
+                    "purchase_issue_items_with_ucode_missing_in_dest_for_non_dc_v30.csv",
                     csvHeaderForPurchaseIssueItemsWithUcodeMissingInDestForNonDC,
                     row, OUTPUT_DIR, False
                 )
@@ -172,7 +172,7 @@ def validate_invoice(pi, tenant):
             ]]
             with csv_lock:
                 append_to_csv(
-                    "purchase_issues_with_invalid_invoice_for_non_dc.csv",
+                    "purchase_issues_with_invalid_invoice_for_non_dc_v30.csv",
                     csvHeaderForPurchaseIssuesWithInvalidInvoiceForNonDC,
                     row, OUTPUT_DIR, False
                 )
@@ -192,13 +192,15 @@ def fetchPrDetailsForDCNotGenerated():
     for tenant_info in warehouse_list:
         tenant = tenant_info[0] if isinstance(tenant_info, (list, tuple)) else str(tenant_info)
         print(f"Processing tenant: {tenant}")
-        if tenant == 'th438' or tenant == 'th997':
+        if tenant in ('th303' , 'th997' , 'th438'):
             continue
 
         pdis = list(pdiToTenantMap.keys())
         purchaseIssues = fetchPurchaseIssues(tenant, pdis)
         if not purchaseIssues:
             continue
+
+        print(f"len purchase_issue ids for tenant {tenant} : {len(purchaseIssues)}")
 
         purchaseIssueIds = [pi['id'] for pi in purchaseIssues]
         purchaseIssueIdToPdi = {pi['id']: str(pi['partner_detail_id']) for pi in purchaseIssues}

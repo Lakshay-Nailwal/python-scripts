@@ -1,0 +1,2 @@
+UPDATE th428.purchase_issue SET updated_on = NOW(), invoice_sequence_type = 'DELIVERY_CHALLAN_NORMAL' WHERE id IN (29360,29363,55371,55372,55374,55375,55378,55390,55392,55397,55399,55400,55401,55402,55403,57326,61655,61657,61765,61766,61777,62026,62031,62033) AND invoice_sequence_type IS NULL;
+UPDATE th428.purchase_issue SET updated_on = NOW(), invoice_sequence_type = 'DEBIT_NOTE_NUMBER' WHERE id IN (32022,32060) AND invoice_sequence_type IS NULL;

@@ -8,8 +8,8 @@ from getDBConnection import create_db_connection
 from csv_utils import save_to_csv
 
 
-INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/purchase_issue_items_with_ucode_missing_in_dest.csv"
-OUTPUT_FILE_NAME = "delete_purchase_issue_item_output_and_move_Pre_purchase_issue_order_v2.csv"
+INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/purchase_issue_items_with_ucode_missing_in_dest_v25.csv"
+OUTPUT_FILE_NAME = "delete_purchase_issue_item_output_and_move_Pre_purchase_issue_order_v25.csv"
 OUTPUT_DIR = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES"
 output_data = []
 
@@ -20,13 +20,13 @@ def handle_pre_purchase_issue_order_and_purchase_issue_item():
         for row in reader:
             debitNote = row["source_debit_note_number"]
             source_tenant = row["source_tenant"]
-            ucode = row["ucode"].zfill(6)
+            ucode = row["ucode"]
             batch = row["batch"]
 
             connection = create_db_connection(source_tenant)
             cursor = connection.cursor(pymysql.cursors.DictCursor)
             cursor.execute("""
-                SELECT pii.*, pi.pre_purchase_issue_id as ppio_in_PR 
+                SELECT distinct pii.*, pi.pre_purchase_issue_id as ppio_in_PR 
                 FROM purchase_issue_item pii 
                 JOIN purchase_issue pi ON pi.id = pii.purchase_issue_id 
                 WHERE pi.debit_note_number = %s AND pii.ucode = %s AND pii.batch = %s
@@ -73,7 +73,7 @@ def handle_pre_purchase_issue_order_and_purchase_issue_item():
                 
 
 
-INPUT_CSV_3 = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/delete_purchase_issue_item_output_and_move_Pre_purchase_issue_order_v2.csv"
+INPUT_CSV_3 = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/delete_purchase_issue_item_output_and_move_Pre_purchase_issue_order_v25.csv"
 
 def handle_purchase_issue_item_invoices():
     print("handle_purchase_issue_item_invoices")
@@ -116,7 +116,7 @@ def handle_purchase_issue_item_invoices():
 
     if output_data:
         csv_headers = list(output_data[0].keys())
-        save_to_csv("delete_purchase_issue_item_invoice_output.csv", csv_headers, output_data, OUTPUT_DIR)
+        save_to_csv("delete_purchase_issue_item_invoice_output_v11.csv", csv_headers, output_data, OUTPUT_DIR)
     else:
         print("⚠️ No data to write.")
 

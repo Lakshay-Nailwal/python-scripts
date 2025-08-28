@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv('config.env')
 
 # Get output directory from environment variable
-OUTPUT_DIRECTORY = os.getenv('CSV_OUTPUT_DIR', "/Users/lakshay.nailwal/Desktop/CSV_FILES")
+OUTPUT_DIRECTORY = os.getenv('CSV_OUTPUT_DIR', "/Users/lakshay.nailwal/Desktop/updatedScripts/CSV_FILES")
 
 def save_to_csv(filename, headers, data, output_dir=None):
     """
@@ -62,38 +62,48 @@ def save_to_csv_with_timestamp(filename, headers, data, output_dir=None):
     
     return save_to_csv(timestamped_filename, headers, data, output_dir)
 
-def append_to_csv(filename, headers,data, output_dir=None , needLogs = True):
+def append_to_csv(filename, headers, data, output_dir=None, needLogs=True):
     """
-    Append data to existing CSV file.
+    Append row(s) to CSV file.
     
     Args:
         filename (str): Name of the CSV file (without path)
-        data (list): List of rows (each row is a list/tuple)
-        output_dir (str, optional): Custom output directory. Defaults to OUTPUT_DIRECTORY.
-    
-    Returns:
-        str: Full path of the file
+        headers (list): Header row
+        data (list/tuple or list of lists): Row or list of rows
+        output_dir (str, optional): Output directory
+        needLogs (bool): Print logs if True
     """
     if output_dir is None:
         output_dir = OUTPUT_DIRECTORY
     
     full_path = os.path.join(output_dir, filename)
     file_exists = os.path.isfile(full_path)
+
     try:
+        os.makedirs(output_dir, exist_ok=True)
+
         with open(full_path, 'a', newline='', encoding='utf-8') as csvfile:
             writer = csv.writer(csvfile)
             if not file_exists:
                 writer.writerow(headers)
-            writer.writerows(data)
-        
-        if(needLogs):
-            print(f"Data appended to CSV file: {full_path}")
-            print(f"Rows appended: {len(data)}")
+
+            # handle single row vs multiple rows
+            if data and isinstance(data[0], (list, tuple)):
+                writer.writerows(data)   # multiple rows
+            else:
+                writer.writerow(data)    # single row
+
+        if needLogs:
+            print(f"✅ Data appended to: {full_path}")
+            rows_added = len(data) if isinstance(data[0], (list, tuple)) else 1
+            print(f"Rows appended: {rows_added}")
+
         return full_path
-        
+
     except Exception as e:
-        print(f"Error appending to CSV file: {e}")
+        print(f"❌ Error appending to CSV file: {e}")
         raise
+
 
 # Example usage:
 # if __name__ == "__main__":

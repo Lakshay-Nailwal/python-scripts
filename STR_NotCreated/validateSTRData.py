@@ -7,7 +7,7 @@ from getDBConnection import create_db_connection
 from csv_utils import save_to_csv
 
 INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/CSV_FILES/dest_invoice_not_created_output_STR.csv"
-OUTPUT_CSV = "dest_invioce_not_created_output_STR_v3.csv"
+OUTPUT_CSV = "dest_invioce_not_created_output_STR_v37.csv"
 
 already_processed = []
 successDebitNoteNumbers = []

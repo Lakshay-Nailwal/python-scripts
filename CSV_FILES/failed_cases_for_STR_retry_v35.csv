@@ -1,0 +1,2 @@
+source_debit_note_number,source_tenant,message,dest_tenant
+DR0411-25A000061,th411,upstream request timeout,th402
