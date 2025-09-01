@@ -88,5 +88,8 @@ if __name__ == "__main__":
     process_csv()
     print("unique dc attemp", len(already_processed))
     print("failed_cases", failed_cases)
+    if(len(failed_cases)):
+        save_to_csv()
+
     print("purchase_issue_ids", len(purchase_issue_ids))
 

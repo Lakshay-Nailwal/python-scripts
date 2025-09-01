@@ -1,4 +1,6 @@
 source_debit_note_number,source_tenant,message,dest_tenant
 P0213-25A0000067,th213,"{""error"":""Request processing failed"",""message"":""Invoice details not found for ucode: 365696, batch: T23010 for tenant: th429""}",th429
+DR0214-25A001801,th214,upstream request timeout,th213
 DR0214-25A000409,th214,"{""error"":""Request processing failed"",""message"":""Invoice details not found for ucode: I40435, batch: 2208000408 for tenant: th213""}",th213
+DR0411-25A000061,th411,upstream request timeout,th402
 P0425-25A0000110,th425,"{""error"":""Request processing failed"",""message"":""Invoice details not found for ucode: F79676, batch: CEM02AAA for tenant: th436""}",th436

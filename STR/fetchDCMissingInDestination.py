@@ -84,7 +84,7 @@ def fetchDCForAllTenants(warehouse):
     
         if final_data:
             append_to_csv(
-                "dest_invoice_not_created_output_STR_v35.csv",
+                "dest_invoice_not_created_output_STR_v71.csv",
                 ["source_debit_note_number", "dest_tenant", "source_tenant"],
                 final_data,
                 OUTPUT_DIR

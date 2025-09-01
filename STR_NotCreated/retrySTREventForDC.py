@@ -13,7 +13,7 @@ from token_switcher import get_token_for_tenant
 from csv_utils import save_to_csv
 
 # Input CSV file path
-INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/CSV_FILES/dest_invioce_not_created_output_STR_v35.csv"
+INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/CSV_FILES/dest_invioce_not_created_output_STR_v45.csv"
 
 # Set to track already processed debit note numbers
 already_processed = set()
@@ -75,7 +75,7 @@ def process_csv():
 
             # # Step 3: Make the API call with raw list of IDs
             try:
-                response = requests.post(url, headers=headers, json=ids, timeout=120)
+                response = requests.post(url, headers=headers, json=ids, timeout=120000)
                 if response.status_code == 200:
                     print(f"[SUCCESS] Retry triggered for DN: {sourceDebitNoteNumber} in tenant {sourceTenant}")
                 else:
@@ -95,6 +95,6 @@ if __name__ == "__main__":
     process_csv()
     print("unique dc attemp", len(already_processed))
     print("failed_cases", failed_cases)
-    save_to_csv("failed_cases_for_STR_retry_v35.csv" , ["source_debit_note_number" , "source_tenant" , "message" , "dest_tenant"] , failed_cases)
+    if(len(failed_cases) > 0) : save_to_csv("failed_cases_for_STR_retry_v61.csv" , ["source_debit_note_number" , "source_tenant" , "message" , "dest_tenant"] , failed_cases)
     print("purchase_issue_ids", len(purchase_issue_ids))
 

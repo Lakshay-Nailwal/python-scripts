@@ -8,8 +8,8 @@ from getDBConnection import create_db_connection
 from csv_utils import save_to_csv
 
 
-INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/purchase_issue_items_with_ucode_missing_in_dest_for_non_dc_v6.csv"
-OUTPUT_FILE_NAME = "delete_purchase_issue_item_output_and_move_Pre_purchase_issue_order_v8.csv"
+INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/purchase_issue_items_with_ucode_missing_in_dest_for_non_dc_v43.csv"
+OUTPUT_FILE_NAME = "delete_purchase_issue_item_output_and_move_Pre_purchase_issue_order_v30.csv"
 OUTPUT_DIR = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES"
 output_data = []
 
@@ -32,18 +32,13 @@ def handle_pre_purchase_issue_order_and_purchase_issue_item():
             result = cursor.fetchall()
             connection.close()
 
-            newTray = row["Tray"]
-            if newTray == "No": continue
-
-            if newTray == "":
-                newTray = result[0]["tray_id"]
 
             for r in result:
                 prePrId = r.get("pre_purchase_issue_id") or r.get("ppio_in_PR")
 
                 if prePrId:
                     update_pre_purchase_query = (
-                        f"UPDATE {source_tenant}.pre_purchase_issue_order SET updated_on = NOW(), status = 'CREATED', tray_id = '{newTray}' WHERE id = {prePrId};"
+                        f"UPDATE {source_tenant}.pre_purchase_issue_order SET updated_on = NOW(), status = 'CREATED' WHERE id = {prePrId};"
                     )
                     delete_purchase_issue_item_query = (
                         f"DELETE FROM {source_tenant}.purchase_issue_item WHERE id = {r['id']};"
@@ -52,8 +47,6 @@ def handle_pre_purchase_issue_order_and_purchase_issue_item():
                     enriched_row = {
                         **r,  # Include all columns from pii.* and ppio_in_PR
                         "source_tenant": source_tenant,
-                        "updated_Pre_PR_tray": newTray,
-                        "old_tray": r["tray_id"],
                         "update_pre_purchase_query": update_pre_purchase_query,
                         "delete_purchase_issue_item_query": delete_purchase_issue_item_query
                     }
@@ -71,7 +64,7 @@ def handle_pre_purchase_issue_order_and_purchase_issue_item():
                 
 
 
-INPUT_CSV_3 = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/delete_purchase_issue_item_output_and_move_Pre_purchase_issue_order_v8.csv"
+INPUT_CSV_3 = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/delete_purchase_issue_item_output_and_move_Pre_purchase_issue_order_v30.csv"
 
 def handle_purchase_issue_item_invoices():
     print("handle_purchase_issue_item_invoices")
@@ -114,7 +107,7 @@ def handle_purchase_issue_item_invoices():
 
     if output_data:
         csv_headers = list(output_data[0].keys())
-        save_to_csv("delete_purchase_issue_item_invoice_output_v8.csv", csv_headers, output_data, OUTPUT_DIR)
+        save_to_csv("delete_purchase_issue_item_invoice_output_v30.csv", csv_headers, output_data, OUTPUT_DIR)
     else:
         print("⚠️ No data to write.")
 

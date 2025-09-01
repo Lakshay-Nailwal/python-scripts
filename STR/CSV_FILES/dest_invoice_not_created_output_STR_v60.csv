@@ -1,0 +1,4 @@
+source_debit_note_number,dest_tenant,source_tenant
+DR0409-25A000002,th411,th409
+DR0411-25A000061,th402,th411
+DR0435-25A000399,th214,th435

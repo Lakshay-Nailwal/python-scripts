@@ -13,7 +13,7 @@ from token_switcher import get_token_for_tenant
 from csv_utils import save_to_csv
 
 # Input CSV file path
-INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES/str_dn_validation_v3.csv"
+INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES/str_dn_validation_v4.csv"
 OUTPUT_DIR = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR_DN/CSV_FILES"
 # Set to track already processed debit note numbers
 already_processed = set()
@@ -48,7 +48,7 @@ def process_csv():
             try:
                 response = requests.post(url, headers=headers, timeout=120)
                 if response.status_code == 200:
-                    print("Processed --> InvoiceNo : {invoiceNo} , tenant : {tenant}")
+                    print(f"Processed --> InvoiceNo : {invoiceNo} , tenant : {tenant}")
                 else:
                     failed_cases.append([invoiceId, invoiceNo, response.text ,  tenant])
             except requests.RequestException as e:

@@ -2,7 +2,7 @@ import csv
 import os
 from collections import defaultdict
 
-INPUT_FILE = "inv_purchase_issue_report_20250826_180833.csv"  # replace with your actual file
+INPUT_FILE = "inv_purchase_issue_report_20250901_185654.csv"  # replace with your actual file
 OUTPUT_DIR = "tenant_sql_updates"
 BATCH_SIZE = 4000
 
@@ -38,8 +38,7 @@ def generate_sql_files():
                     query = (
                         f"UPDATE {tenant}.purchase_issue "
                         f"SET updated_on = NOW(), invoice_sequence_type = '{seq_type_safe}' "
-                        f"WHERE id IN ({ids_str}) "
-                        f"AND invoice_sequence_type IS NULL;\n"
+                        f"WHERE id IN ({ids_str});\n "
                     )
                     f.write(query)
                     batch[seq_type] = []  # reset batch
@@ -52,8 +51,7 @@ def generate_sql_files():
                     query = (
                         f"UPDATE {tenant}.purchase_issue "
                         f"SET updated_on = NOW(), invoice_sequence_type = '{seq_type_safe}' "
-                        f"WHERE id IN ({ids_str}) "
-                        f"AND invoice_sequence_type IS NULL;\n"
+                        f"WHERE id IN ({ids_str});\n"
                     )
                     f.write(query)
 

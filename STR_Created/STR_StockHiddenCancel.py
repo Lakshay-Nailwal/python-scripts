@@ -2,6 +2,7 @@ import sys
 import os
 import csv
 import pymysql
+from datetime import datetime
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from getDBConnection import create_db_connection
@@ -40,13 +41,14 @@ def process_csv():
     failedDebitNoteNumbers = []
     cancelledGatepassNumbers = []
     cancelledInvoiceNumbers = []
-
+    deleteDigestData = []
     with open(INPUT_CSV, newline='') as infile:
         reader = csv.DictReader(infile)
 
         for row in reader:
             db_name = row["dest_tenant"]
             source_debit_note_number = row["source_debit_note_number"]
+            source_tenant = row["source_tenant"]
 
             if source_debit_note_number in alreadyProcessedDN:
                 continue
@@ -66,6 +68,14 @@ def process_csv():
                         )
                         cancelledInvoiceNumbers.append([source_debit_note_number, db_name, row["source_tenant"], cancelInvoiceQuery])
 
+                        deleteDigestQuery = ""
+                        CUTOFF_DATE = datetime(2025, 8, 22)
+                        print(invoiceDetail["created_on"])
+                        print(CUTOFF_DATE)
+                        if(invoiceDetail["created_on"] >= CUTOFF_DATE):
+                            deleteDigestQuery = f"DELETE FROM mercury.idempotent_digest WHERE metadata = '{invoiceDetail['invoice_no']} + {source_tenant}';"
+                            deleteDigestData.append([deleteDigestQuery])
+
                         gatepassDetails = getGatepassDetails(db_name, source_debit_note_number, invoiceDetail["gatepass_id"])
                         if len(gatepassDetails) > 0:
                             for gatepassDetail in gatepassDetails:
@@ -78,13 +88,17 @@ def process_csv():
             else:
                 failedDebitNoteNumbers.append([source_debit_note_number, db_name, row["source_tenant"]])
 
-    save_to_csv("cancelledInvoiceNumbers_STR.csv",
-                ["source_debit_note_number", "dest_tenant", "source_tenant", "cancelInvoiceQuery"],
-                cancelledInvoiceNumbers, OUTPUT_DIR)
+    # save_to_csv("cancelledInvoiceNumbers_STR.csv",
+    #             ["source_debit_note_number", "dest_tenant", "source_tenant", "cancelInvoiceQuery"],
+    #             cancelledInvoiceNumbers, OUTPUT_DIR)
 
-    save_to_csv("cancelledGatepassNumbers_STR.csv",
-                ["source_debit_note_number", "dest_tenant", "source_tenant", "cancelGatepassQuery"],
-                cancelledGatepassNumbers, OUTPUT_DIR)
+    # save_to_csv("cancelledGatepassNumbers_STR.csv",
+    #             ["source_debit_note_number", "dest_tenant", "source_tenant", "cancelGatepassQuery"],
+    #             cancelledGatepassNumbers, OUTPUT_DIR)
+    
+    save_to_csv("deleteDigestQuery_STR.csv",
+                ["deleteDigestQuery"],
+                deleteDigestData, OUTPUT_DIR)
 
     save_to_csv("failedDebitNoteNumbers_STR.csv",
                 ["source_debit_note_number", "dest_tenant", "source_tenant"],

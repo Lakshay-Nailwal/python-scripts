@@ -55,8 +55,8 @@ def fetch_purchase_issues(tenant, partner_to_tenant, writer):
                 pi2.invoice_sequence_type
             FROM {tenant}.purchase_issue pi2
             WHERE pi2.status NOT IN ('cancelled', 'DELETED')
-              AND pi2.debit_note_number is NULL
-              AND pi2.created_on > '2025-01-01 00:00:00'
+              AND (pi2.debit_note_number is NOT NULL OR pi2.debit_note_number != '')
+              AND pi2.invoice_date > '2025-08-27 00:00:00'
         """
         with conn.cursor() as cursor:
             cursor.execute(query)

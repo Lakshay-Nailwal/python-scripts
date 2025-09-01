@@ -151,7 +151,7 @@ def process_chunk(chunk, tenant, purchaseIssueIdToPdi, purchaseIssueIdToStatus):
             ]]
             with csv_lock:
                 append_to_csv(
-                    "purchase_issue_items_with_ucode_missing_in_dest_for_non_dc_v30.csv",
+                    "purchase_issue_items_with_ucode_missing_in_dest_for_non_dc_v43.csv",
                     csvHeaderForPurchaseIssueItemsWithUcodeMissingInDestForNonDC,
                     row, OUTPUT_DIR, False
                 )
@@ -172,7 +172,7 @@ def validate_invoice(pi, tenant):
             ]]
             with csv_lock:
                 append_to_csv(
-                    "purchase_issues_with_invalid_invoice_for_non_dc_v30.csv",
+                    "purchase_issues_with_invalid_invoice_for_non_dc_v43.csv",
                     csvHeaderForPurchaseIssuesWithInvalidInvoiceForNonDC,
                     row, OUTPUT_DIR, False
                 )
@@ -207,22 +207,22 @@ def fetchPrDetailsForDCNotGenerated():
         purchaseIssueIdToStatus = {pi['id']: pi['status'] for pi in purchaseIssues}
 
         # Step 3: Process chunks in threads
-        with ThreadPoolExecutor(max_workers=8) as executor:
+        with ThreadPoolExecutor(max_workers=10) as executor:
             futures = []
-            for i in range(0, len(purchaseIssueIds), 100):
-                chunk = purchaseIssueIds[i:i+100]
+            for i in range(0, len(purchaseIssueIds), 200):
+                chunk = purchaseIssueIds[i:i+200]
                 futures.append(executor.submit(process_chunk, chunk, tenant, purchaseIssueIdToPdi, purchaseIssueIdToStatus))
             for f in as_completed(futures):
                 f.result()
 
-        # Step 4: Validate invoices in threads
-        with ThreadPoolExecutor(max_workers=8) as executor:
-            futures = []
-            for pi in purchaseIssues:
-                if pi['invoice_id'] is not None:
-                    futures.append(executor.submit(validate_invoice, pi, tenant))
-            for f in as_completed(futures):
-                f.result()
+        # # Step 4: Validate invoices in threads
+        # with ThreadPoolExecutor(max_workers=8) as executor:
+        #     futures = []
+        #     for pi in purchaseIssues:
+        #         if pi['invoice_id'] is not None:
+        #             futures.append(executor.submit(validate_invoice, pi, tenant))
+        #     for f in as_completed(futures):
+        #         f.result()
 
 if __name__ == "__main__":
     fetchPrDetailsForDCNotGenerated()

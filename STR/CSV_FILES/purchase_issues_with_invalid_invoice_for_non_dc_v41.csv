@@ -1,0 +1,3 @@
+dest_tenant,source_tenant,purchase_issue_id,invoice_id,invoice_no,pr_type,invoice_tenant,is_invoice_tenant_same,purchase_issue_status
+th408,th205,334244,469354,LN24021948,PURCHASE_RETURN,,False,DISPATCH_READY
+th406,th205,334258,540753,113102-SR,PURCHASE_RETURN,,False,DISPATCH_READY

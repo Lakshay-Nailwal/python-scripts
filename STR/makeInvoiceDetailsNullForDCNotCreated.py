@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from getDBConnection import create_db_connection
 from csv_utils import save_to_csv , append_to_csv
 
-INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/purchase_issues_with_invalid_invoice_v17.csv"
+INPUT_CSV = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES/purchase_issues_with_invalid_invoice_v10.csv"
 OUTPUT_DIR = "/Users/lakshay.nailwal/Desktop/updatedScripts/STR/CSV_FILES"
 
 alreadySeen = set()
@@ -121,7 +121,7 @@ def makeInvoiceDetailsNullFromPR():
                 append_to_csv("prInvoiceDataListbackUP.csv", prInvoiceHeader, prInvoiceDataList, OUTPUT_DIR)
 
     save_to_csv(
-        "makeInvoiceDetailsNullFromPR_Output_v17.csv",
+        "makeInvoiceDetailsNullFromPR_Output_v13.csv",
         ["source_debit_note_number", "source_tenant", "dest_tenant", "updateInvoiceDetailsQuery", "updateUnifiedVendorQuery", "deletePurchaseIssueInvoiceQuery"],
         data,
         OUTPUT_DIR

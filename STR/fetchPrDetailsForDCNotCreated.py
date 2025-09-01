@@ -64,8 +64,8 @@ def checkIfUcodesExistInDest(distinctUcodes, dest_tenant):
         print("distinctUcodes : ", distinctUcodes)
 
         query = f"""
-            SELECT DISTINCT code FROM inward_invoice_item
-            WHERE code IN ({placeholders})
+            SELECT DISTINCT code FROM inward_invoice_item iii join inward_invoice ii on iii.invoice_id = ii.id
+            WHERE code IN ({placeholders}) and ii.status = 'live' and ii.purchase_type not in ('ICSReturn', 'StockTransferReturn')
         """
         cursor.execute(query, list(distinctUcodes))
 
@@ -108,9 +108,9 @@ def fetchPrDetailsForDCNotCreated():
                 count += 1
                 continue
 
-            source_debit_note_number = row[3]
-            dest_tenant = row[1]
-            source_tenant = row[0]
+            source_debit_note_number = row[0]
+            dest_tenant = row[3]
+            source_tenant = row[1]
 
             if(source_tenant in ('th303' , 'th997' , 'th438')):
                 continue
@@ -143,7 +143,7 @@ def fetchPrDetailsForDCNotCreated():
             for item in purchaseIssueItems:
                 if(item['ucode'].zfill(6) not in validUcodes):
                     row_for_csv = [[source_debit_note_number, dest_tenant, source_tenant, item['id'], item['ucode'], item['batch'], item['assigned_bin'], item['return_quantity'], item['amount'], item['pre_purchase_issue_id'], item['purchase_issue_id'] , purchaseIssueIdMapToStatus[item['purchase_issue_id']]]]
-                    append_to_csv("purchase_issue_items_with_ucode_missing_in_dest_v25.csv",csvHeaderForPurchaseIssueItemsWithUcodeMissingInDest,row_for_csv, OUTPUT_DIR, False)
+                    append_to_csv("purchase_issue_items_with_ucode_missing_in_dest_v26.csv",csvHeaderForPurchaseIssueItemsWithUcodeMissingInDest,row_for_csv, OUTPUT_DIR, False)
 
             for pi in purchaseIssues:
                 invoice_id = pi['invoice_id']
@@ -152,7 +152,7 @@ def fetchPrDetailsForDCNotCreated():
                 if(isInvoiceValid == False):
                     isInvoiceTenantSame = pi['invoice_tenant'] == source_tenant
                     row_for_csv = [[source_debit_note_number, dest_tenant, source_tenant, pi['id'], pi['invoice_id'], pi['invoice_no'], pi['invoice_sequence_type'], pi['pr_type'], pi['invoice_date'], pi['invoice_tenant'] , isInvoiceTenantSame , pi['status']]]
-                    append_to_csv("purchase_issues_with_invalid_invoice_v25.csv",csvHeaderForPurchaseIssuesWithInvalidInvoice,row_for_csv, OUTPUT_DIR, False)
+                    append_to_csv("purchase_issues_with_invalid_invoice_v26.csv",csvHeaderForPurchaseIssuesWithInvalidInvoice,row_for_csv, OUTPUT_DIR, False)
             cursor.close()
             conn.close()
 
