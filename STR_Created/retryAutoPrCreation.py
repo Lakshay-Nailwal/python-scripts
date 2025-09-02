@@ -109,7 +109,7 @@ def process_tenant(tenant):
 
         if data:
             with csv_lock:
-                append_to_csv("retryAutoPrCreation.csv", ["query", "tenant", "reference_debit_note_number", "ogPdi", "ogInvoiceId", "ogInvoiceNo", "correctPdi"], data, CURRENT_DIRECTORY)
+                append_to_csv("retryAutoPrCreation_v2.csv", ["query", "tenant", "reference_debit_note_number", "ogPdi", "ogInvoiceId", "ogInvoiceNo", "correctPdi"], data, CURRENT_DIRECTORY)
         else:
             print("No data to save")
     except Exception as e:
